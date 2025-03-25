@@ -24,6 +24,8 @@ console.log("Variable 1 after copying is ", num1)
 
 
 // Answer for task 6
+let firstName = "Alesia";
+let surname = "Hancharyk"
 let group = "jsRetraining";
 let birthYear = 1991;
 let maritalStatus = true;
@@ -35,7 +37,7 @@ console.log("Type of birthYear var is ", typeof birthYear);
 console.log("Type of maritalStatus var is ", typeof maritalStatus);
 console.log("Type of group var is ", typeof group);
 console.log("Type of surname var is ", typeof surname);
-console.log("Type of name var is ", typeof name);
+console.log("Type of name var is ", typeof firstName);
 
 console.log("Type of name var is ", typeof empty);
 console.log("Type of name var is ", typeof nothing);
