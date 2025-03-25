@@ -5,52 +5,14 @@
 </head>
 <body>
 
-<div id="content">
-  <h2>Task 8</h2>
-  <p>Click a button to see the result:</p>
-
-  <button onclick="showHour()">Seconds in an Hour</button>
-  <button onclick="showDay()">Seconds in a Day</button>
-  <button onclick="showMonth()">Seconds in a Month</button>
-</div>
-
+<h2>Task 8</h2>
 <script>
   let secondsInMinute = 60;
   let secondsInHour = 60 * secondsInMinute;
   let secondsInDay = 24 * secondsInHour;
   let secondsInMonth = 30 * secondsInDay;
 
-  function showHour() {
-    document.getElementById("content").innerHTML = `
-      <p>Seconds in an Hour: ${secondsInHour}</p>
-      <button onclick="goBack()">Back</button>
-    `;
-  }
-
-  function showDay() {
-    document.getElementById("content").innerHTML = `
-      <p>Seconds in a Day: ${secondsInDay}</p>
-      <button onclick="goBack()">Back</button>
-    `;
-  }
-
-  function showMonth() {
-    document.getElementById("content").innerHTML = `
-      <p>Seconds in a Month (30 days): ${secondsInMonth}</p>
-      <button onclick="goBack()">Back</button>
-    `;
-  }
-
-  function goBack() {
-    document.getElementById("content").innerHTML = `
-      <h2>Time Conversion</h2>
-      <p>Click a button to see the result:</p>
-
-      <button onclick="showHour()">Seconds in an Hour</button>
-      <button onclick="showDay()">Seconds in a Day</button>
-      <button onclick="showMonth()">Seconds in a Month</button>
-    `;
-  }
+  alert(`Amount of seconds in an hour is ${secondsInHour}, in a day is ${secondsInDay}, in a month is ${secondsInMonth}.`)
 </script>
 
 </body>
