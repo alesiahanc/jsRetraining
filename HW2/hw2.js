@@ -95,12 +95,40 @@ function compareNumeric(a, b) {
   sides.sort(compareNumeric);
 
   if ((sides[2] ** 2) === (sides[0] ** 2) + (sides[1] ** 2)) {
-    console.log("The triangle is right-angled")
+    console.log("The triangle is right-angled");
   }
   else {
-    console.log("The triangle is NOT right-angled")
+    console.log("The triangle is NOT right-angled");
   }
 
+// Task 7 
+let hours = new Date().getHours();
+console.log(`Hours is ${hours}`)
 
-
-
+// Option 1: 
+if (0 <= hours && hours < 5) {
+    console.log("Good night");
+}
+else if (5 <= hours && hours < 11) {
+    console.log("Good morning");
+}
+else if (11 <= hours && hours < 17) {
+    console.log("Good day");
+}
+else {
+    console.log("Good evening");
+}
+// Option 2 
+switch (true) {
+    case (0 <= hours && hours < 5):
+        console.log("Good night");
+        break;
+    case (5 <= hours && hours < 11):
+        console.log("Good morning");
+        break;
+    case (11 <= hours && hours < 17):
+        console.log("Good day");
+        break;
+    default:
+        console.log("Good evening");
+}
