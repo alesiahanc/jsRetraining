@@ -58,8 +58,49 @@ else {
 }
 
 // Task 6
-let firstLength = prompt("Enter the length of the first side of triangle")
-let sectLength = prompt("Enter the length of the second side of triangle")
-let thirdLength = prompt("Enter the length of the third side of triangle")
+function getValidSide(promptText) {
+    let sideLength;
+    do {
+      sideLength = prompt(promptText);
+
+      if (!sideLength) {
+        alert("Please enter a number");
+      } else if (isNaN(sideLength)) {
+        alert("Please enter a number, not something else");
+    } else if (parseFloat(sideLength) <= 0) {
+        alert("Number must be greater than zero");
+      }
+    }
+    
+    while (!sideLength || isNaN(sideLength) || parseFloat(sideLength) <= 0);
+    return parseFloat(sideLength);
+}
+  
+
+let firstLength = Number(getValidSide("Enter the length of the first side of triangle"));
+let secLength = Number(getValidSide("Enter the length of the second side of triangle"));
+let thirdLength = Number(getValidSide("Enter the length of the third side of triangle"));
+
+let semiPerimeter = (firstLength + secLength + thirdLength) / 2;
+let area = Math.sqrt(semiPerimeter * (semiPerimeter - firstLength) * (semiPerimeter - secLength) * (semiPerimeter - thirdLength)).toFixed(3);
+console.log("Area is: ", area)
+
+let sides = [firstLength, secLength, thirdLength]
+function compareNumeric(a, b) {
+    if (a > b) return 1;
+    if (a == b) return 0;
+    if (a < b) return -1;
+  }
+
+  sides.sort(compareNumeric);
+
+  if ((sides[2] ** 2) === (sides[0] ** 2) + (sides[1] ** 2)) {
+    console.log("The triangle is right-angled")
+  }
+  else {
+    console.log("The triangle is NOT right-angled")
+  }
+
+
 
 
