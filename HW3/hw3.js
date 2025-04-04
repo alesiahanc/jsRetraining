@@ -58,7 +58,13 @@ function findMin(...args) {
     let min = Math.min(...args);
     return min;
   }
-// verifying if works:
+
+// Task 6
+function findUnique (...args) {
+    return new Set(args).size === args.length;
+}
+
+// verifying if functions from tasks 5-6 work:
 let arrInput = prompt("Enter numbers separated by space or comma");
 let arrParsed = arrInput.split(/[\s,]+/);   
 let numbers = arrParsed.map(str => parseFloat(str));
@@ -69,17 +75,17 @@ if (numbers.length === 0) {
   } else {
     let minValue = findMin(...numbers);
     console.log("Minimum value is ", minValue);
+    let ifUnique = findUnique(...numbers);
+    console.log("The input numbers create a unique array: ", ifUnique);
   }
-
-// 6. Write the function findUnique(arr), which accepts an array “arr” and checks if all elements of array are unique ( no doubles ), then function will return true if all elements are unique, otherwise - false.
-// Sample Output :
-// findUnique ([1, 2, 3, 5, 3]); // => false
-// findUnique ([1, 2, 3, 5, 11 ]); // => true
 
 // 7 . Write a function that returns the last element of an array. The function can accept 2 parameters: the 1st array, the 2nd numerical parameter corresponding to the number of "x" of the last elements of the array to be output.
 // Sample Output:
 // console.log(last Elem ([ 3 , 4 , 1 0, - 5 ])); // - 5 console.log(last Elem ([ 3 , 4 , 1 0, - 5 ], 2 )); // [ 1 0, - 5 ] console.log(last Elem ([ 3 , 4 , 1 0, - 5 ], 8 )); // [ 3 , 4 , 1 0, - 5 ]
 
-// 8 . Write a function that takes a string as an argument and converts the first letter of each word of the string to uppercase .
-// Input string : 'i love java script'
-// Output string: 'I Love Java Script
+// Task 8
+function goUppercase(str) {
+    return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+let wordsInput = prompt("Enter some words");
+console.log("Making user input uppercase: ", goUppercase(wordsInput));
