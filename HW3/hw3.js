@@ -79,9 +79,17 @@ if (numbers.length === 0) {
     console.log("The input numbers create a unique array: ", ifUnique);
   }
 
-// 7 . Write a function that returns the last element of an array. The function can accept 2 parameters: the 1st array, the 2nd numerical parameter corresponding to the number of "x" of the last elements of the array to be output.
-// Sample Output:
-// console.log(last Elem ([ 3 , 4 , 1 0, - 5 ])); // - 5 console.log(last Elem ([ 3 , 4 , 1 0, - 5 ], 2 )); // [ 1 0, - 5 ] console.log(last Elem ([ 3 , 4 , 1 0, - 5 ], 8 )); // [ 3 , 4 , 1 0, - 5 ]
+// Task 7
+function getLastElements(arr, x) {
+  if (!Array.isArray(arr) || arr.length === 0) {return undefined};
+
+  if (x === undefined) {
+    return arr[arr.length - 1];
+  } else {
+    return arr.slice(-x);
+  }
+}
+console.log(getLastElements([ 3 , 4 , 10, - 5], 2));
 
 // Task 8
 function goUppercase(str) {
