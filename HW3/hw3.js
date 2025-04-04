@@ -39,14 +39,37 @@ return resArr;
 console.log("Generated array of random integers: ", randArray(5));
 
 // Task 4 
-// Write the function raiseToDegree(a, b), which returns the result of raising the number a to the power of b . The function works only with integers. Implement the interface for entering numbers a , b from the keyboard.
-// Sample Output :
-// raiseToDegree ( 3 , 4 ); // 81
+let userInput = prompt("Enter a number and a degree you want to raise, separate by comma or space");
+let parts = userInput.split(/[\s,]+/);
 
-// Implement the findMin() function , which should accept an arbitrary number of numeric arguments and return the one with the smallest value. Tip: you can use the special arguments array for the solution .
-// Sample Output :
-// findMin (12, 14, 4, -4, 0.2); // => - 4
+let number = parts[0];
+let degree = parts[1];
 
+if (isNaN(number) || isNaN(degree)) {
+    console.log("Please enter two valid numbers.");
+  } 
+  else {
+    console.log(`Number ${number} in degree ${degree} is`, number ** degree);
+  }
+
+// Task 5
+// the func: 
+function findMin(...args) {
+    let min = Math.min(...args);
+    return min;
+  }
+// verifying if works:
+let arrInput = prompt("Enter numbers separated by space or comma");
+let arrParsed = arrInput.split(/[\s,]+/);   
+let numbers = arrParsed.map(str => parseFloat(str));
+numbers = numbers.filter(num => !isNaN(num));
+
+if (numbers.length === 0) {
+    console.log("No valid numbers entered.");
+  } else {
+    let minValue = findMin(...numbers);
+    console.log("Minimum value is ", minValue);
+  }
 
 // 6. Write the function findUnique(arr), which accepts an array “arr” and checks if all elements of array are unique ( no doubles ), then function will return true if all elements are unique, otherwise - false.
 // Sample Output :
