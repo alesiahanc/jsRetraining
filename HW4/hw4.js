@@ -49,14 +49,67 @@ catch (exception) {
     console.log(exception.message);
 }
 
-// 3 . Create a Month Exception class whose constructor takes a message parameter and initializes the name field to 'MonthException'.
-// Implement the showMonthName(month) function, 
-// where the month parameter is the sequential number of the month of the year. 
-// The function returns the name of the month according to the entered month number. 
-// In case of incorrect input, an exception is thrown in the form of an object of the Month Exception class with the message 'Incorrect month number'.
-// Write code that uses this function, provide handling of possible exceptions.
-// An example of the program :
-// > console . log ( showMonthName ( 5 ));
-// May
-// > console . log ( showMonthName ( 14 ));
-// MonthException Incorrect month number
+// Task 3
+class MonthException extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "MonthException"
+    }
+}
+
+let monthNames = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+}
+
+function showMonthName(month) {
+    if (month in monthNames) {
+        console.log(monthNames[month]);
+    }
+    else {
+        throw new MonthException("Incorrect month number");
+    }
+}
+
+let month = prompt("Enter a month's number");
+try {
+    result3 = showMonthName(month);
+} catch (exception){
+    console.log(exception.name, exception.message);
+}
+
+// Task 4
+function showUser(id) {
+    if (id >= 0) {
+        return { id };
+    }
+    else {
+        throw new Error("Error: ID must not be negative: " + id);
+    }
+}
+
+function showUsers(ids) {
+    let validUsers = []
+    for (let id of ids ){
+        try {
+            let user = showUser(id);
+            validUsers.push(user);
+        }
+        catch (exception) {
+            console.log(exception.message);
+        }
+    }
+    console.log(validUsers);
+}
+
+showUsers([7, -12, 44, 22]);
