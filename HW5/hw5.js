@@ -60,3 +60,48 @@ class Student extends Person {
 const stud1 = new Student("Petro", "Petrenko", 2024);
 console.log(stud1.showFullName("Petrovych"));
 console.log("Current course: " + stud1.showCourse()); 
+
+//Task 4 
+class Worker {
+    constructor (fullName, dayRate, workingDays, experience) {
+        this.fullName = fullName;
+        this.dayRate = parseInt(dayRate);
+        this.workingDays = parseInt(workingDays);
+        this._experience = 1.2;
+    }
+    showSalary() {
+        return this.dayRate * workingDays;
+    }
+    showSalaryWithExperience () {
+        return this.dayRate * this.workingDays * this.experience;
+    }
+    get experience() {
+        return this._experience;
+    }
+    set experience(value) {
+        this._experience = value;
+    }
+}
+// Workers
+let worker1 = new Worker("John Johnson", 20, 23);
+let worker2 = new Worker("Tom Tomson", 48, 22);
+let worker3 = new Worker("Andy Ander", 29, 21);
+
+console.log(`Worker ${worker1.fullName} has initial experience of ${worker1.experience}`);
+
+// Updating worker's exerience
+worker1.experience = 1.5;
+
+// New experience
+console.log(`Now ${worker1.fullName} has experience: ${worker1.experience}`);
+
+let workers = [ worker1, worker2, worker3];
+
+// Sorting by salary
+workers.sort((a, b) => a.showSalaryWithExperience() - b.showSalaryWithExperience());
+
+// Displaying sorted workers
+console.log("\nSorted salary:");
+workers.forEach(worker => {
+    console.log(`${worker.fullName}: ${worker.showSalaryWithExperience()}`);
+});
