@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homework 6</title>
+</head>
+
+<body>
+  <!-- Task 1 -->
+  <div id="test" class="test2">First</div>
+
+  <!-- Task 2 -->
+  <button id="myBtn">Open Modal</button>
+  <button id="myBtn2">Close Modal</button>
+  <div id="myModal" class="modal" style="display: none;">
+    <img id="imgtask2" src="dog.jpeg">
+  </div>
+  
+  <!-- Task 3 -->
+  <h2>Article header</h2>
+  <div id="text">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+  </div>
+  <p>Another text</p>
+
+  <!-- Task 4 -->
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <div id="modal2" style="display:none;"></div>
+  
+
+<script>
+    // Task 1
+   document.getElementById("test").innerText = "Last";
+   document.getElementsByClassName("test2")[0].textContent = "Last";
+
+   // Task 2
+   let button = document.getElementById("myBtn");
+   let closeBtn = document.getElementById("myBtn2");
+   let modal = document.getElementById("myModal");
+   let image = document.getElementById("imgtask2");
+   
+   button.addEventListener("click", function() {
+    image.src = "cat.png";
+    modal.style.display = "block";
+   });
+   closeBtn.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+
+    // Task 3
+    const paragraphs = document.querySelectorAll("#text p");
+    paragraphs.forEach((p, index) => {
+      console.log(`Selector text ${index}: ${p.textContent}`);
+    });
+
+    // Task 4
+
+</script>
+</body>
+  </html>
